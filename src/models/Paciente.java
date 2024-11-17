@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Paciente extends Pessoa{
     private String[] historicoMedico; // armazena diagnósticos anteriores
-    private Boolean planoDeSaude;
-    private String numProntuario;
+    private String planoDeSaude;
+    private String idProntuario;
     private String[] alergias;
 
-    public Paciente(String nome, String cpf, String email, String telefone, String endereco, Date dataNascimento, Date dataCadastro, String[] historicoMedico, Boolean planoDeSaude, String numProntuario, String[] alergias) {
+    public Paciente(String nome, String cpf, String email, String telefone, String endereco, Date dataNascimento, Date dataCadastro, String[] historicoMedico, String planoDeSaude, String idProntuario, String[] alergias) {
         super(nome, cpf, email, telefone, endereco, dataNascimento, dataCadastro);
         this.historicoMedico = historicoMedico;
         this.planoDeSaude = planoDeSaude;
-        this.numProntuario = numProntuario;
+        this.idProntuario = idProntuario;
         this.alergias = alergias;
     }
 
@@ -24,20 +24,20 @@ public class Paciente extends Pessoa{
         this.historicoMedico = historicoMedico;
     }
 
-    public Boolean getPlanoDeSaude() {
+    public String getPlanoDeSaude() {
         return planoDeSaude;
     }
 
-    public void setPlanoDeSaude(Boolean planoDeSaude) {
+    public void setPlanoDeSaude(String planoDeSaude) {
         this.planoDeSaude = planoDeSaude;
     }
 
-    public String getNumProntuario() {
-        return numProntuario;
+    public String getIdProntuario() {
+        return idProntuario;
     }
 
-    public void setNumProntuario(String numProntuario) {
-        this.numProntuario = numProntuario;
+    public void setIdProntuario(String idProntuario) {
+        this.idProntuario = idProntuario;
     }
 
     public String[] getAlergias() {

@@ -1,6 +1,7 @@
 package models;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Paciente extends Pessoa{
     private String[] historicoMedico; // armazena diagnósticos anteriores
@@ -8,8 +9,8 @@ public class Paciente extends Pessoa{
     private String idProntuario;
     private String[] alergias;
 
-    public Paciente(String nome, String cpf, String email, String telefone, String endereco, Date dataNascimento, Date dataCadastro, String[] historicoMedico, String planoDeSaude, String idProntuario, String[] alergias) {
-        super(nome, cpf, email, telefone, endereco, dataNascimento, dataCadastro);
+    public Paciente(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento, LocalDate dataCadastro, String[] historicoMedico, String planoDeSaude, String idProntuario, String[] alergias) {
+        super(nome, cpf, email, telefone, endereco, dataNascimento);
         this.historicoMedico = historicoMedico;
         this.planoDeSaude = planoDeSaude;
         this.idProntuario = idProntuario;
@@ -46,5 +47,15 @@ public class Paciente extends Pessoa{
 
     public void setAlergias(String[] alergias) {
         this.alergias = alergias;
+    }
+
+    @Override
+    public String toString() {
+        return "PACIENTE" + super.getNome() +
+                super.toString() +
+                "Histórico Medico: " + Arrays.toString(historicoMedico) +
+                ", Plano De Saude: '" + planoDeSaude + '\'' +
+                ", ID Prontuario: '" + idProntuario + '\'' +
+                ", Alergias: " + Arrays.toString(alergias) ;
     }
 }

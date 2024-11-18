@@ -59,8 +59,4 @@ public class Consulta {
         this.status = status;
     }
 
-    // altera o status da consulta para o atual
-    public void alterarStatus(String statusAtual) {
-        this.status = statusAtual;
-    }
 }

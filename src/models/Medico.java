@@ -1,7 +1,7 @@
 package models;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class Medico extends Pessoa {
     private String crm;
@@ -9,8 +9,8 @@ public class Medico extends Pessoa {
     private Double salario;
     private LocalTime horarioDeAtendimento;
 
-    public Medico(String nome, String cpf, String email, String telefone, String endereco, Date dataNascimento, Date dataCadastro, String crm, String especialidade, Double salario, LocalTime horarioDeAtendimento) {
-        super(nome, cpf, email, telefone, endereco, dataNascimento, dataCadastro);
+    public Medico(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento, LocalDate dataCadastro, String crm, String especialidade, Double salario, LocalTime horarioDeAtendimento) {
+        super(nome, cpf, email, telefone, endereco, dataNascimento);
         this.crm = crm;
         this.especialidade = especialidade;
         this.salario = salario;
@@ -47,5 +47,15 @@ public class Medico extends Pessoa {
 
     public void setHorarioDeAtendimento(LocalTime horarioDeAtendimento) {
         this.horarioDeAtendimento = horarioDeAtendimento;
+    }
+
+    @Override
+    public String toString() {
+        return "MÉDICO" + super.getNome() +
+                super.toString() +
+                "CRM: '" + crm + '\'' +
+                ", Especialidade: '" + especialidade + '\'' +
+                ", Salário: R$" + salario +
+                ", Horário De Atendimento: " + horarioDeAtendimento ;
     }
 }

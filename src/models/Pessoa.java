@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 //classe abstrata que define atributos comuns a médico e paciente
 public abstract class Pessoa {
@@ -9,17 +9,15 @@ public abstract class Pessoa {
     private String email;
     private String telefone;
     private String endereco;
-    private Date dataNascimento; // do tipo dd/mm/yy
-    private Date dataCadastro; // do tipo dd/mm/yy
+    private LocalDate dataNascimento; // do tipo dd/MM/yy
 
-    public Pessoa(String nome, String cpf, String email, String telefone, String endereco, Date dataNascimento, Date dataCadastro) {
+    public Pessoa(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
         this.dataNascimento = dataNascimento;
-        this.dataCadastro = dataCadastro;
     }
 
     public String getNome() {
@@ -62,20 +60,21 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
+    @Override
+    public String toString() {
+        return "-- Dados Cadastrais --" +
+                ", CPF: " + cpf + '\'' +
+                ", Email: " + email + '\'' +
+                ", Telefone: " + telefone + '\'' +
+                ", Endereço: " + endereco + '\'' +
+                ", Data de Nascimento: " + dataNascimento ;
     }
-
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
 }

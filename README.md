@@ -21,7 +21,8 @@ Projeto Java desenvolvido em equipe para a disciplina de Programação Orientada
 
 ## 👩🏽‍💻 Desenvolvedores
 
-| <img src="https://avatars.githubusercontent.com/isadoracaarvalho" alt="Isadora Carvalho" width="100" height="100"> <br> [Isadora Carvalho](https://github.com/isadoracaarvalho) | <img src="https://avatars.githubusercontent.com/udimile" alt="Udimile Macedo" width="100" height="100"> <br> [Udimille Macedo](https://github.com/udimile) | 
-| --- | --- |
+| <img src="https://avatars.githubusercontent.com/isadoracaarvalho" alt="Isadora Carvalho" width="100" height="100"> <br> [Isadora Carvalho](https://github.com/isadoracaarvalho) | <img src="https://avatars.githubusercontent.com/PedroHSCF" alt="Pedro Henrique" width="100" height="100"> <br> [Pedro Henrique](https://github.com/PedroHSCF) | <img src="https://avatars.githubusercontent.com/rafaelrivasg" alt="Rafael Rivas" width="100" height="100"> <br> [Rafael Rivas](https://github.com/rafaelrivasg) | <img src="https://avatars.githubusercontent.com/udimile" alt="Udimile Macedo" width="100" height="100"> <br> [Udimile Macedo](https://github.com/udimile) |
+| --- | --- | --- | --- |
+
 
 

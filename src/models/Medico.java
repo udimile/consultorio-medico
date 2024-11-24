@@ -7,14 +7,12 @@ public class Medico extends Pessoa {
     private String crm;
     private String especialidade;
     private Double salario;
-    private LocalTime horarioDeAtendimento;
 
-    public Medico(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento, LocalDate dataCadastro, String crm, String especialidade, Double salario, LocalTime horarioDeAtendimento) {
-        super(nome, cpf, email, telefone, endereco, dataNascimento);
+    public Medico(String nome, String cpf, String email, String telefone, LocalDate dataNascimento, String crm, String especialidade, Double salario) {
+        super(nome, cpf, email, telefone, dataNascimento);
         this.crm = crm;
         this.especialidade = especialidade;
         this.salario = salario;
-        this.horarioDeAtendimento = horarioDeAtendimento;
     }
 
     public String getCrm() {
@@ -41,13 +39,6 @@ public class Medico extends Pessoa {
         this.salario = salario;
     }
 
-    public LocalTime getHorarioDeAtendimento() {
-        return horarioDeAtendimento;
-    }
-
-    public void setHorarioDeAtendimento(LocalTime horarioDeAtendimento) {
-        this.horarioDeAtendimento = horarioDeAtendimento;
-    }
 
     @Override
     public String toString() {
@@ -55,7 +46,6 @@ public class Medico extends Pessoa {
                 super.toString() +
                 "CRM: '" + crm + '\'' +
                 ", Especialidade: '" + especialidade + '\'' +
-                ", Salário: R$" + salario +
-                ", Horário De Atendimento: " + horarioDeAtendimento ;
+                ", Salário: R$" + salario;
     }
 }

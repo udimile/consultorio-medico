@@ -4,17 +4,26 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Paciente extends Pessoa{
-    private String[] historicoMedico; // armazena diagnósticos anteriores
+    private String endereco;
+    private String[] historicoMedico;
     private String planoDeSaude;
     private String idProntuario;
-    private String[] alergias;
 
-    public Paciente(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento, LocalDate dataCadastro, String[] historicoMedico, String planoDeSaude, String idProntuario, String[] alergias) {
-        super(nome, cpf, email, telefone, endereco, dataNascimento);
+    public Paciente(String nome,
+                    String cpf,
+                    String email,
+                    String telefone,
+                    LocalDate dataNascimento,
+                    LocalDate dataCadastro,
+                    String[] historicoMedico,
+                    String planoDeSaude,
+                    String idProntuario,
+                    String endereco) {
+        super(nome, cpf, email, telefone, dataNascimento);
         this.historicoMedico = historicoMedico;
         this.planoDeSaude = planoDeSaude;
         this.idProntuario = idProntuario;
-        this.alergias = alergias;
+        this.endereco = endereco;
     }
 
     public String[] getHistoricoMedico() {
@@ -41,21 +50,23 @@ public class Paciente extends Pessoa{
         this.idProntuario = idProntuario;
     }
 
-    public String[] getAlergias() {
-        return alergias;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setAlergias(String[] alergias) {
-        this.alergias = alergias;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
+
+
 
     @Override
     public String toString() {
         return "PACIENTE" + super.getNome() +
                 super.toString() +
+                ", Endereço: " + endereco + '\'' +
                 "Histórico Medico: " + Arrays.toString(historicoMedico) +
                 ", Plano De Saude: '" + planoDeSaude + '\'' +
-                ", ID Prontuario: '" + idProntuario + '\'' +
-                ", Alergias: " + Arrays.toString(alergias) ;
+                ", ID Prontuario: '" + idProntuario + '\'';
     }
 }

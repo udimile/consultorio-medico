@@ -2,19 +2,27 @@ package services;
 
 import interfaces.Gerenciamento;
 import models.Consulta;
+import models.Medico;
+import models.Paciente;
+import models.StatusConsulta;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConsultaService implements Gerenciamento<Consulta>{
 
-    List<Consulta> consultas = new ArrayList<Consulta>();
+    private List<Consulta> consultas = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
+    private PacienteService pacienteService;
+    private MedicoService medicoService;
 
-    Scanner sc = new Scanner(System.in);
-
-    public ConsultaService(List<Consulta> consultas) {
+    public ConsultaService(List<Consulta> consultas, PacienteService pacienteService, MedicoService medicoService) {
         this.consultas = consultas;
+        this.pacienteService = pacienteService;
+        this.medicoService = medicoService;
     }
 
     public List<Consulta> getConsultas() {
@@ -25,18 +33,29 @@ public class ConsultaService implements Gerenciamento<Consulta>{
         this.consultas = consultas;
     }
 
+    public Consulta pedirDadosConsulta() {
+        System.out.println("Digite o id da consulta: ");
+        String id = sc.nextLine();
+        System.out.println("Digite o id do paciente: ");
+        String idPaciente = sc.nextLine();
+        System.out.println("Digite o id do médico: ");
+        String idMedico = sc.nextLine();
+        System.out.println("Digite a data da consulta: ");
+        LocalDate data = LocalDate.parse(sc.nextLine());
+        System.out.println("Digite o horário da consulta: ");
+        LocalTime horario = LocalTime.parse(sc.nextLine());
+        System.out.println("Digite o status da consulta (AGENDADO/CONCLUIDO):: ");
+        StatusConsulta status = StatusConsulta.valueOf(sc.nextLine().toUpperCase());
+
+        Paciente paciente = pacienteService.buscarPacientePorId(idPaciente);
+        Medico medico = medicoService.buscarMedicoPorId(idMedico);
+
+        return new Consulta(id, medico, paciente, data, horario, status);
+
+    }
+
     @Override
     public void adicionar(Consulta consulta) {
-
-        System.out.println("Medico: ");
-        consulta.setMedico();
-
-        System.out.println("Paciente: ");
-        consulta.getPaciente();
-
-        System.out.println("Horario: ");
-
-
         consultas.add(consulta);
         System.out.println("Consulta adicionada.");
     }

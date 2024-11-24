@@ -1,8 +1,11 @@
 package models;
 
+import services.PacienteService;
+
 public class Prontuario {
     private String idProntuario;
     private String descricao;
+    private String[] historicoMedico;
 
     public String getIdProntuario() {
         return idProntuario;
@@ -19,4 +22,22 @@ public class Prontuario {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String[] getHistoricoMedico() {
+        return historicoMedico;
+    }
+
+    public void setHistoricoMedico(String[] historicoMedico) {
+        this.historicoMedico = historicoMedico;
+    }
+
+    public void pegarHistoricoDoPaciente(String idPaciente, PacienteService pacienteService) {
+        Paciente paciente = pacienteService.buscarPacientePorId(idPaciente);
+        if (paciente != null) {
+            this.historicoMedico = paciente.getHistoricoMedico();
+        } else {
+            System.out.println("Paciente não encontrado.");
+        }
+    }
 }
+

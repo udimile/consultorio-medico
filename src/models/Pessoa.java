@@ -8,15 +8,13 @@ public abstract class Pessoa {
     private String cpf;
     private String email;
     private String telefone;
-    private String endereco;
-    private LocalDate dataNascimento; // do tipo dd/MM/yy
+    private LocalDate dataNascimento;
 
-    public Pessoa(String nome, String cpf, String email, String telefone, String endereco, LocalDate dataNascimento) {
+    public Pessoa(String nome, String cpf, String email, String telefone, LocalDate dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.endereco = endereco;
         this.dataNascimento = dataNascimento;
     }
 
@@ -52,13 +50,6 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -74,7 +65,6 @@ public abstract class Pessoa {
                 ", CPF: " + cpf + '\'' +
                 ", Email: " + email + '\'' +
                 ", Telefone: " + telefone + '\'' +
-                ", Endereço: " + endereco + '\'' +
                 ", Data de Nascimento: " + dataNascimento ;
     }
 }

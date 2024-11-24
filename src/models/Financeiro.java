@@ -5,10 +5,10 @@ import java.time.LocalDate;
 public class Financeiro {
 
     private Double valorConsulta;
-    private String formaPagamento; // cartao, dinheiro, pix
-    private String statusPagamento; // concluido, pendente
+    private FormaDePagamento formaPagamento; // cartao, dinheiro, pix
+    private StatusPagamento statusPagamento; // concluido, pendente
 
-    public Financeiro(Double valorConsulta, String formaPagamento, String statusPagamento) {
+    public Financeiro(Double valorConsulta, FormaDePagamento formaPagamento, StatusPagamento statusPagamento) {
         this.valorConsulta = valorConsulta;
         this.formaPagamento = formaPagamento;
         this.statusPagamento = statusPagamento;
@@ -22,19 +22,19 @@ public class Financeiro {
         this.valorConsulta = valorConsulta;
     }
 
-    public String getFormaPagamento() {
+    public FormaDePagamento getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(String formaPagamento) {
+    public void setFormaPagamento(FormaDePagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
-    public String getStatusPagamento() {
+    public StatusPagamento getStatusPagamento() {
         return statusPagamento;
     }
 
-    public void setStatusPagamento(String statusPagamento) {
+    public void setStatusPagamento(StatusPagamento statusPagamento) {
         this.statusPagamento = statusPagamento;
     }
 }

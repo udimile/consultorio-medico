@@ -5,18 +5,20 @@ import java.time.LocalTime;
 
 public class Consulta {
 
+    private String idConsulta;
     private Medico medico;
     private Paciente paciente;
     private LocalDate data;
     private LocalTime horario;
-    private String status; // agendado, concluido
+    private StatusConsulta statusConsulta; // agendado, concluido
 
-    public Consulta(Medico medico, Paciente paciente, LocalDate data, LocalTime horario, String status) {
+    public Consulta(String idConsulta, Medico medico, Paciente paciente, LocalDate data, LocalTime horario, StatusConsulta statusConsulta) {
+        this.idConsulta = idConsulta;
         this.medico = medico;
         this.paciente = paciente;
         this.data = data;
         this.horario = horario;
-        this.status = status;
+        this.statusConsulta = statusConsulta;
     }
 
     public Medico getMedico() {
@@ -51,12 +53,16 @@ public class Consulta {
         this.horario = horario;
     }
 
-    public String getStatus() {
-        return status;
+    public StatusConsulta getStatus() {
+        return statusConsulta;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(StatusConsulta statusConsulta) {
+        this.statusConsulta = statusConsulta;
+    }
+
+    public String getIdConsulta() {
+        return idConsulta;
     }
 
 }

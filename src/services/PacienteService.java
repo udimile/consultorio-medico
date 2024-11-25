@@ -4,6 +4,7 @@ import interfaces.Gerenciamento;
 import models.Paciente;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,19 +32,19 @@ public class PacienteService implements Gerenciamento<Paciente> {
 
         for (Paciente p : pacientes) {
             if (p.getCpf().equals(paciente.getCpf())) {
-                System.out.println("Paciente ja cadastrado");
+                System.out.println("Paciente ja cadastrado\n");
                 break;
             }
         }
         pacientes.add(paciente);
-        System.out.println("Paciente adicionado.");
+        System.out.println("Paciente adicionado.\n");
 
     }
 
     @Override
     public void atualizar(Paciente paciente) {
             pacientes.set(pacientes.indexOf(paciente), paciente);
-            System.out.println("Paciente atualizado.");
+            System.out.println("Paciente atualizado.\n");
     }
 
     @Override
@@ -51,9 +52,9 @@ public class PacienteService implements Gerenciamento<Paciente> {
 
         if(pacientes.contains(paciente)){
             pacientes.remove(paciente);
-            System.out.println("Paciente removido.");
+            System.out.println("Paciente removido.\n");
         }else{
-            System.out.println("Paciente não encontrado.");
+            System.out.println("Paciente não encontrado.\n");
         }
 
     }
@@ -76,10 +77,11 @@ public class PacienteService implements Gerenciamento<Paciente> {
         String email = sc.nextLine();
         System.out.println("Telefone: ");
         String telefone = sc.nextLine();
-        System.out.println("Data de Nascimento (yyyy-MM-dd): ");
-        LocalDate dataNascimento = LocalDate.parse(sc.nextLine());
-        System.out.println("Data de Cadastro (yyyy-MM-dd): ");
-        LocalDate dataCadastro = LocalDate.parse(sc.nextLine());
+        System.out.println("Data de Nascimento (dd/MM/yyyy): ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataNascimento = LocalDate.parse(sc.nextLine(), formatter);
+        System.out.println("Data de Cadastro (dd/MM/yyyy): ");
+        LocalDate dataCadastro = LocalDate.parse(sc.nextLine(), formatter);
         System.out.println("Histórico Médico: ");
         String[] historicoMedico = sc.nextLine().split(",");
         System.out.println("Plano de Saúde: ");

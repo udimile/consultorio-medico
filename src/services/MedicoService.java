@@ -4,6 +4,7 @@ import interfaces.Gerenciamento;
 import models.Medico;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,27 +29,27 @@ public class MedicoService implements Gerenciamento<Medico> {
     public void adicionar(Medico medico) {
         for (Medico m : medicos) {
             if (m.getCrm().equals(medico.getCrm())) {
-                System.out.println("Médico já cadastrado.");
+                System.out.println("Médico já cadastrado.\n");
                 return;
             }
         }
         medicos.add(medico);
-        System.out.println("Médico adicionado.");
+        System.out.println("Médico adicionado.\n");
     }
 
     @Override
     public void atualizar(Medico medico) {
         medicos.set(medicos.indexOf(medico), medico);
-        System.out.println("Médico atualizado.");
+        System.out.println("Médico atualizado.\n");
     }
 
     @Override
     public void remover(Medico medico) {
         if (medicos.contains(medico)) {
             medicos.remove(medico);
-            System.out.println("Médico removido.");
+            System.out.println("Médico removido.\n");
         } else {
-            System.out.println("Médico não encontrado.");
+            System.out.println("Médico não encontrado.\n");
         }
     }
 
@@ -74,8 +75,9 @@ public class MedicoService implements Gerenciamento<Medico> {
         System.out.println("Telefone: ");
         String telefone = sc.nextLine();
 
-        System.out.println("Data de Nascimento (yyyy-MM-dd): ");
-        LocalDate dataNascimento = LocalDate.parse(sc.nextLine());
+        System.out.println("Data de Nascimento (dd/MM/yyyy): ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataNascimento = LocalDate.parse(sc.nextLine(), formatter);
 
         System.out.println("CRM: ");
         String crm = sc.nextLine();

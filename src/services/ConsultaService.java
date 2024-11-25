@@ -8,6 +8,7 @@ import models.StatusConsulta;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,11 +41,12 @@ public class ConsultaService implements Gerenciamento<Consulta>{
         String idPaciente = sc.nextLine();
         System.out.println("Digite o id do médico: ");
         String idMedico = sc.nextLine();
-        System.out.println("Digite a data da consulta: ");
-        LocalDate data = LocalDate.parse(sc.nextLine());
-        System.out.println("Digite o horário da consulta: ");
-        LocalTime horario = LocalTime.parse(sc.nextLine());
-        System.out.println("Digite o status da consulta (AGENDADO/CONCLUIDO):: ");
+        System.out.println("Digite a data da consulta (dd/MM/yyyy):");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate data = LocalDate.parse(sc.nextLine(), formatter);
+        System.out.println("Digite o horário da consulta (hh:mm)");
+        LocalTime horario = LocalTime.parse(sc.nextLine(), DateTimeFormatter.ofPattern("HH:mm"));
+        System.out.println("Digite o status da consulta (AGENDADO/CONCLUIDO): ");
         StatusConsulta status = StatusConsulta.valueOf(sc.nextLine().toUpperCase());
 
         Paciente paciente = pacienteService.buscarPacientePorId(idPaciente);
@@ -57,22 +59,22 @@ public class ConsultaService implements Gerenciamento<Consulta>{
     @Override
     public void adicionar(Consulta consulta) {
         consultas.add(consulta);
-        System.out.println("Consulta adicionada.");
+        System.out.println("Consulta adicionada.\n");
     }
 
     @Override
     public void atualizar(Consulta consulta) {
         consultas.set(consultas.indexOf(consulta), consulta);
-        System.out.println("Consulta atualizada.");
+        System.out.println("Consulta atualizada. \n");
     }
 
     @Override
     public void remover(Consulta consulta) {
         if (consultas.contains(consulta)) {
             consultas.remove(consulta);
-            System.out.println("Consulta removida.");
+            System.out.println("Consulta removida. \n");
         } else {
-            System.out.println("Consulta não encontrada.");
+            System.out.println("Consulta não encontrada. \n");
         }
     }
 }
